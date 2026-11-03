@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankit Saini | Botany Educator & NEET Mentor</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            950: '#022c22',
+                        },
+                        tech: {
+                            50: '#f0f9ff',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-mesh {
+            background-color: #f8fafc;
+            background-image: radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.08) 0px, transparent 50%);
+        }
+        .dark .bg-mesh {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 0% 0%, rgba(6, 78, 59, 0.2) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(3, 105, 161, 0.2) 0px, transparent 50%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.85);
+            border: 1px solid rgba(51, 65, 85, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-mesh text-slate-800 dark:text-slate-100 font-sans antialiased transition-colors duration-300">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 glass-card transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-tech-600 flex items-center justify-center text-white font-bold text-xl shadow-md shadow-emerald-500/20">
+                    AS
+                </div>
+                <div>
+                    <span class="font-display font-bold text-lg leading-none block text-slate-900 dark:text-white">Ankit Saini</span>
+                    <span class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Botany & AI Educator</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+                <a href="#about" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About</a>
+                <a href="#experience" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Experience</a>
+                <a href="#ai-integration" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">AI in Teaching</a>
+                <a href="#curricula" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Global Teaching</a>
+                <a href="#skills" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Skills</a>
+                <a href="#resources" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Resources</a>
+            </nav>
+
+            <!-- Actions (Theme Toggle & CTA) -->
+            <div class="flex items-center gap-3">
+                <button id="themeToggleBtn" aria-label="Toggle Theme" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300">
+                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                </button>
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm shadow-md shadow-emerald-600/20 transition-all hover:scale-[1.02]">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    <span>Contact Me</span>
+                </a>
+                <button id="mobileMenuBtn" aria-label="Toggle Menu" class="lg:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-6 space-y-3">
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">About Me</a>
+            <a href="#experience" class="mobile-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">Experience</a>
+            <a href="#ai-integration" class="mobile-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">AI in Teaching</a>
+            <a href="#curricula" class="mobile-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">Global Teaching</a>
+            <a href="#skills" class="mobile-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">Skills</a>
+            <a href="#resources" class="mobile-link block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">Resources</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-lg bg-emerald-600 text-white font-medium text-center">Contact Me</a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 py-10">
+
+        <!-- SECTION 1: HERO SECTION -->
+        <section id="home" class="min-h-[80vh] flex items-center justify-center relative pt-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                        Aakash Institute Lecturer | Google Gemini Certified
+                    </div>
+                    
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none">
+                        Ankit Saini
+                        <span class="block mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">
+                            Lecturer in Botany | NEET & AI Educator
+                        </span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-6xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                        Empowering Future Medical Professionals Through Innovative, Technology-Driven Education. Combining 5+ years of EdTech mastery with cutting-edge AI methodologies to inspire scientific curiosity.
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                        <a href="#contact" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-tech-600 hover:from-emerald-700 hover:to-tech-700 text-white font-semibold shadow-lg shadow-emerald-500/25 transition-all hover:scale-[1.02] flex items-center gap-2">
+                            <span>Get In Touch</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#resources" class="px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold transition-all">
+                            View Resources
+                        </a>
+                    </div>
+
+                    <!-- Quick Highlights -->
+                    <div class="pt-8 border-t border-slate-200 dark:border-slate-800 grid grid-cols-3 gap-4 text-center">
+                        <div class="p-3 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 font-display">5+</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Years Exp.</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-tech-600 dark:text-tech-500 font-display">700+</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">NEET Aspirants</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-purple-600 dark:text-purple-400 font-display">3</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Global Curricula</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic / Bio Avatar Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Decorative glow -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-tech-600 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+                        <div class="relative rounded-3xl p-6 glass-card shadow-2xl space-y-6">
+                            <div class="relative rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 aspect-square flex items-center justify-center">
+                                <svg class="w-3/4 h-3/4 text-emerald-600/20 dark:text-emerald-400/20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                </svg>
+                                <div class="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent text-white">
+                                    <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Aakash Institute Faculty</span>
+                                    <h3 class="text-xl font-bold font-display">Ankit Saini, M.Sc.</h3>
+                                    <p class="text-xs text-slate-300">Botany Specialist & AI Pedagogy Advocate</p>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between text-xs text-slate-600 dark:text-slate-300">
+                                    <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-emerald-500"></i> Himachal Pradesh, India</span>
+                                    <span class="flex items-center gap-2"><i class="fa-solid fa-graduation-cap text-tech-500"></i> Panjab University</span>
+                                </div>
+                                <div class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/50 flex items-center gap-3">
+                                    <i class="fa-solid fa-certificate text-emerald-600 text-xl"></i>
+                                    <div>
+                                        <div class="text-xs font-bold text-slate-900 dark:text-slate-100">Google Gemini Certified Faculty</div>
+                                        <div class="text-[11px] text-slate-500 dark:text-slate-400">Generative AI in Education</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2 & 4: ABOUT ME & EDUCATION -->
+        <section id="about" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">Background & Academic Foundation</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-display">About Me & Education</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-emerald-500 to-tech-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Bio Text -->
+                <div class="lg:col-span-7 glass-card p-8 rounded-3xl space-y-6">
+                    <h3 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-3">
+                        <i class="fa-solid fa-seedling text-emerald-600"></i>
+                        Educator's Profile
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        I am Ankit Saini, a 31-year-old education professional from Himachal Pradesh, India, with a strong academic foundation in biological sciences and a commitment to excellence in teaching.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        My educational journey began at Mount Carmel School, Una. I subsequently completed my Bachelor of Science in Medical Sciences from Himachal Pradesh University, Shimla, followed by a Master's degree in Botany from Panjab University, Chandigarh.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Throughout my professional journey, I have focused on making complex biological concepts accessible, engaging, and relevant. I believe that effective teaching extends beyond textbooks; it involves developing curiosity, critical thinking, scientific understanding, and confidence.
+                    </p>
+                </div>
+
+                <!-- Educational Qualifications Timeline -->
+                <div class="lg:col-span-5 space-y-4">
+                    <h3 class="text-xl font-bold font-display px-2 flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-tech-500"></i>
+                        Academic Credentials
+                    </h3>
+
+                    <!-- Degree 1 -->
+                    <div class="glass-card p-6 rounded-2xl relative border-l-4 border-l-emerald-600">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 float-right">Master's</span>
+                        <h4 class="font-bold text-lg text-slate-900 dark:text-white">M.Sc. Botany</h4>
+                        <div class="text-sm font-medium text-emerald-600 dark:text-emerald-400">Panjab University, Chandigarh</div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                            Advanced academic specialization in plant sciences, plant physiology, genetics, ecology, taxonomy, and biological disciplines.
+                        </p>
+                    </div>
+
+                    <!-- Degree 2 -->
+                    <div class="glass-card p-6 rounded-2xl relative border-l-4 border-l-tech-600">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-tech-50 dark:bg-tech-950 text-tech-700 dark:text-tech-300 float-right">Bachelor's</span>
+                        <h4 class="font-bold text-lg text-slate-900 dark:text-white">B.Sc. Medical</h4>
+                        <div class="text-sm font-medium text-tech-600 dark:text-tech-400">Himachal Pradesh University, Shimla</div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                            Undergraduate education in biological sciences, establishing a strong foundation in Botany, Zoology, and Chemistry.
+                        </p>
+                    </div>
+
+                    <!-- School -->
+                    <div class="glass-card p-6 rounded-2xl relative border-l-4 border-l-slate-400">
+                        <h4 class="font-bold text-lg text-slate-900 dark:text-white">Foundational Schooling</h4>
+                        <div class="text-sm font-medium text-slate-600 dark:text-slate-400">Mount Carmel School, Una, HP</div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                            Completed foundational schooling, developing an early passion for biological sciences and academic inquiry.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 & 5: PROFESSIONAL EXPERIENCE & ACHIEVEMENTS -->
+        <section id="experience" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">Impact & Experience</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-display">Professional Experience</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-emerald-500 to-tech-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="glass-card rounded-3xl p-8 lg:p-10 space-y-8">
+                <!-- Role Header -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
+                    <div>
+                        <div class="flex items-center gap-3 flex-wrap">
+                            <h3 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Lecturer in Botany – NEET Preparation</h3>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">5+ Years Experience</span>
+                        </div>
+                        <p class="text-emerald-600 dark:text-emerald-400 font-semibold text-base mt-1">Aakash Institute</p>
+                    </div>
+                    <div class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs text-slate-600 dark:text-slate-300 font-medium">
+                        Leading Competitive Exam EdTech Specialist
+                    </div>
+                </div>
+
+                <!-- Key Responsibilities Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="p-5 rounded-2xl bg-white/60 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-2">
+                        <i class="fa-solid fa-chalkboard-user text-emerald-600 text-xl"></i>
+                        <h4 class="font-bold text-slate-900 dark:text-white">Comprehensive Lectures</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Delivering in-depth Botany lectures fully aligned with NEET syllabus and NCERT curriculum.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-white/60 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-2">
+                        <i class="fa-solid fa-users text-tech-600 text-xl"></i>
+                        <h4 class="font-bold text-slate-900 dark:text-white">Large Batch Expertise</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Managing large classroom batches of 70+ students while maintaining high engagement & interaction.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-white/60 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-2">
+                        <i class="fa-solid fa-file-pen text-purple-600 text-xl"></i>
+                        <h4 class="font-bold text-slate-900 dark:text-white">Content Creation</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Developing concept-based assignments, practice tests, and revision modules.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-white/60 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-2">
+                        <i class="fa-solid fa-chart-line text-amber-600 text-xl"></i>
+                        <h4 class="font-bold text-slate-900 dark:text-white">Analytics & Assessment</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Conducting regular assessments, analyzing student performance, and providing tailored feedback.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-white/60 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-2">
+                        <i class="fa-solid fa-robot text-teal-600 text-xl"></i>
+                        <h4 class="font-bold text-slate-900 dark:text-white">AI Technology Integration</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Integrating AI-powered educational tools to streamline lesson planning and assessment.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-white/60 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-2">
+                        <i class="fa-solid fa-heart-pulse text-rose-600 text-xl"></i>
+                        <h4 class="font-bold text-slate-900 dark:text-white">Mentorship & Confidence</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Guiding 700+ aspirants with conceptual clarity, exam strategies, and mental resilience.</p>
+                    </div>
+                </div>
+
+                <!-- Medical Placements Showcase -->
+                <div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-4">
+                    <h4 class="font-bold text-slate-900 dark:text-white font-display flex items-center gap-2">
+                        <i class="fa-solid fa-hospital-user text-emerald-600"></i>
+                        Guiding Students Towards Prestigious Medical Institutions
+                    </h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                        Over my teaching career, I have had the privilege of mentoring students who successfully secured admissions in premier medical institutions:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center gap-3">
+                            <i class="fa-solid fa-user-graduate text-emerald-600 text-2xl"></i>
+                            <div>
+                                <div class="font-bold text-sm text-slate-900 dark:text-white">AIIMS</div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400">All India Institute of Medical Sciences</div>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center gap-3">
+                            <i class="fa-solid fa-user-shield text-tech-600 text-2xl"></i>
+                            <div>
+                                <div class="font-bold text-sm text-slate-900 dark:text-white">AFMC, Pune</div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400">Armed Forces Medical College</div>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center gap-3">
+                            <i class="fa-solid fa-building-columns text-purple-600 text-2xl"></i>
+                            <div>
+                                <div class="font-bold text-sm text-slate-900 dark:text-white">LHMC, New Delhi</div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400">Lady Hardinge Medical College</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6 & 7: AI IN EDUCATION & CERTIFICATIONS -->
+        <section id="ai-integration" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">EdTech Innovation</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-display">Artificial Intelligence in Education</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-emerald-500 to-tech-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- AI Stack & Tools Card -->
+                <div class="lg:col-span-5 glass-card p-8 rounded-3xl space-y-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">AI Tool Mastery</h3>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-tech-100 dark:bg-tech-950 text-tech-600 dark:text-tech-400 font-medium">9+ Platforms</span>
+                    </div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        I leverage a wide spectrum of modern generative AI platforms to elevate instructional quality and streamline preparation.
+                    </p>
+
+                    <!-- Interactive Badges Grid -->
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 border border-slate-200 dark:border-slate-700">
+                            <i class="fa-solid fa-sparkles text-emerald-500"></i> ChatGPT
+                        </span>
+                        <span class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 border border-slate-200 dark:border-slate-700">
+                            <i class="fa-brands fa-google text-tech-500"></i> Google Gemini
+                        </span>
+                        <span class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 border border-slate-200 dark:border-slate-700">
+                            <i class="fa-solid fa-brain text-purple-500"></i> Claude
+                        </span>
+                        <span class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 border border-slate-200 dark:border-slate-700">
+                            <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i> MagicSchool AI
+                        </span>
+                        <span class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 border border-slate-200 dark:border-slate-700">
+                            <i class="fa-solid fa-graduation-cap text-indigo-500"></i> Eduaide.AI
+                        </span>
+                        <span class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 border border-slate-200 dark:border-slate-700">
+                            <i class="fa-solid fa-vial text-teal-500"></i> Formative
+                        </span>
+                        <span class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 border border-slate-200 dark:border-slate-700">
+                            <i class="fa-solid fa-microchip text-rose-500"></i> Grok
+                        </span>
+                        <span class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 border border-slate-200 dark:border-slate-700">
+                            <i class="fa-solid fa-layer-group text-blue-500"></i> Wayground
+                        </span>
+                    </div>
+
+                    <!-- Gemini Certification Spotlight -->
+                    <div class="p-5 rounded-2xl bg-gradient-to-br from-emerald-900/10 to-tech-900/10 border border-emerald-500/30 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-lg">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Google Gemini Certified Faculty</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Google Certification</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300">
+                            Certified in generative AI applications for educational instructional design, lesson efficiency, and smart student evaluation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Practical Applications -->
+                <div class="lg:col-span-7 glass-card p-8 rounded-3xl space-y-6">
+                    <h3 class="text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center gap-3">
+                        <i class="fa-solid fa-bolt text-amber-500"></i>
+                        Practical Applications of AI in My Teaching
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                            <span class="font-bold text-sm text-slate-900 dark:text-white block">AI-Assisted Lesson Planning</span>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Designing structured, curriculum-aligned lesson plans with measurable learning objectives.</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                            <span class="font-bold text-sm text-slate-900 dark:text-white block">Smart Assessment Creation</span>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Generating NEET-pattern MCQs, quizzes, and target examination question banks.</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                            <span class="font-bold text-sm text-slate-900 dark:text-white block">Differentiated Instruction</span>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Tailoring learning materials for varied pace and conceptual aptitude levels.</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-1">
+                            <span class="font-bold text-sm text-slate-900 dark:text-white block">Interactive Learning Modules</span>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Incorporating tech-driven active retrieval and instant formative assessment.</p>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-slate-600 dark:text-slate-300 italic pt-2 border-t border-slate-200 dark:border-slate-800">
+                        "My objective is to combine the expertise of an experienced educator with the efficiency of modern AI technologies to create an adaptive, engaging, and effective learning environment."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: INTERNATIONAL TEACHING EXPERIENCE -->
+        <section id="curricula" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">Global Pedagogy</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-display">International Curricula Educator</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-emerald-500 to-tech-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- IGCSE -->
+                <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-emerald-500 transition-all hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">IGCSE Biology</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Teaching core biological concepts with emphasis on conceptual understanding, scientific reasoning, and Cambridge examination techniques.
+                    </p>
+                    <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-300 pt-2 border-t border-slate-100 dark:border-slate-800">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Scientific inquiry skills</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Targeted exam preparation</li>
+                    </ul>
+                </div>
+
+                <!-- IB Biology -->
+                <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-tech-500 transition-all hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-2xl bg-tech-100 dark:bg-tech-950 text-tech-600 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">IB Biology (SL/HL)</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Supporting inquiry-based learning, analytical thinking, and real-world application of biological knowledge for IB Diploma candidates.
+                    </p>
+                    <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-300 pt-2 border-t border-slate-100 dark:border-slate-800">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-tech-500"></i> Internal Assessment (IA) guidance</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-tech-500"></i> Data analysis & evaluation</li>
+                    </ul>
+                </div>
+
+                <!-- AP Biology -->
+                <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-purple-500 transition-all hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-950 text-purple-600 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">AP Biology</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Guiding advanced students through college-level biological principles, quantitative analysis, and rigorous AP exam practice.
+                    </p>
+                    <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-300 pt-2 border-t border-slate-100 dark:border-slate-800">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-500"></i> Advanced genetics & physiology</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-500"></i> Quantitative problem-solving</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9 & 10: PROFESSIONAL SKILLS & LANGUAGES -->
+        <section id="skills" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">Proficiencies</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-display">Skills & Languages</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-emerald-500 to-tech-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Skills Matrix -->
+                <div class="lg:col-span-8 glass-card p-8 rounded-3xl space-y-6">
+                    <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">Core Competencies</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                            <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Subject Expertise</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">Botany & Plant Physiology</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                            <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Competitive Preparation</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">NEET Medical Specialist</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                            <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Classroom Management</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">Large Batches (70+ Students)</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                            <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Curriculum Standards</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">NCERT, IGCSE, IB, AP</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                            <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Instructional Tech</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">AI Pedagogy & Assessment</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                            <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Content Development</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">MCQs, Worksheets & Tests</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages & Communication -->
+                <div class="lg:col-span-4 glass-card p-8 rounded-3xl space-y-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white mb-2">Multilingual Fluency</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">
+                            Fluent communication enables effortless connection with diverse learners and parents.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1">
+                                    <span>English</span>
+                                    <span class="text-emerald-600 dark:text-emerald-400">Fluent</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                                    <div class="w-full h-full bg-emerald-500"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1">
+                                    <span>Hindi</span>
+                                    <span class="text-emerald-600 dark:text-emerald-400">Fluent</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                                    <div class="w-full h-full bg-emerald-500"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1">
+                                    <span>Punjabi</span>
+                                    <span class="text-emerald-600 dark:text-emerald-400">Fluent</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                                    <div class="w-full h-full bg-emerald-500"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/50 text-xs text-slate-600 dark:text-slate-300">
+                        <i class="fa-solid fa-comments text-emerald-600 mr-1"></i> Facilitates inclusive & clear scientific discussion.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 11 & 13: TEACHING PHILOSOPHY & VISION -->
+        <section id="philosophy" class="space-y-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Philosophy Quote Block -->
+                <div class="lg:col-span-7 glass-card p-8 lg:p-10 rounded-3xl space-y-6 relative overflow-hidden flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Teaching Philosophy</h3>
+                        <blockquote class="text-slate-600 dark:text-slate-300 italic leading-relaxed text-sm sm:text-base">
+                            "Education is not merely about preparing students for examinations; it is about inspiring curiosity, building confidence, and nurturing lifelong learners."
+                        </blockquote>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                            My teaching philosophy rests on three essential pillars: <strong>conceptual clarity</strong>, <strong>continuous assessment</strong>, and <strong>personalized academic support</strong>.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3 pt-6 border-t border-slate-200 dark:border-slate-800 text-center">
+                        <div class="p-2">
+                            <span class="block text-xs font-bold text-slate-900 dark:text-white">Pillar 1</span>
+                            <span class="text-[11px] text-slate-500 dark:text-slate-400">Conceptual Clarity</span>
+                        </div>
+                        <div class="p-2">
+                            <span class="block text-xs font-bold text-slate-900 dark:text-white">Pillar 2</span>
+                            <span class="text-[11px] text-slate-500 dark:text-slate-400">Continuous Evaluation</span>
+                        </div>
+                        <div class="p-2">
+                            <span class="block text-xs font-bold text-slate-900 dark:text-white">Pillar 3</span>
+                            <span class="text-[11px] text-slate-500 dark:text-slate-400">Personal Guidance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Career Vision Card -->
+                <div class="lg:col-span-5 glass-card p-8 rounded-3xl space-y-4 bg-gradient-to-br from-slate-900 to-slate-800 text-white flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold tracking-widest text-emerald-400 uppercase">Long-Term Goals</span>
+                        <h3 class="text-2xl font-bold font-display">Professional Vision</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            To contribute to the evolution of science education by merging deep subject expertise, innovative pedagogical methods, and emerging EdTech tools.
+                        </p>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Aiming to expand contributions through high-quality digital learning resources, AI-driven instructional strategies, and global student outreach.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 space-y-2">
+                        <div class="text-xs font-semibold text-emerald-400 flex items-center gap-2">
+                            <i class="fa-solid fa-bullseye"></i> Goal Highlight
+                        </div>
+                        <p class="text-[11px] text-slate-300">
+                            Inspire students to pursue impactful careers in medicine, biological research, and plant sciences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 12: EDUCATIONAL RESOURCES & GALLERY -->
+        <section id="resources" class="space-y-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                <div>
+                    <span class="text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">Material Showcase</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold font-display">Educational Resources</h2>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap gap-2" id="filterContainer">
+                    <button data-filter="all" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-emerald-600 text-white transition-all">All</button>
+                    <button data-filter="notes" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-600 hover:text-white transition-all">Biology Notes</button>
+                    <button data-filter="neet" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-600 hover:text-white transition-all">NEET Materials</button>
+                    <button data-filter="ai" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-600 hover:text-white transition-all">AI Resources</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="resourceGrid">
+                <!-- Card 1: Biology Notes -->
+                <div class="resource-card glass-card rounded-2xl overflow-hidden space-y-3 p-4 flex flex-col justify-between" data-category="notes">
+                    <div class="space-y-3">
+                        <div class="h-40 rounded-xl bg-slate-100 dark:bg-slate-800 overflow-hidden relative group">
+                            <img src="https://placehold.co/600x400/059669/ffffff?text=Botany+Notes+%26+Physiology" alt="Biology Notes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/059669/ffffff?text=Botany+Notes'">
+                            <span class="absolute top-2 right-2 px-2 py-1 rounded bg-slate-900/80 text-[10px] font-bold text-emerald-400">PDF Guide</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base">Plant Physiology Notes</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Concept-based notes, structured diagrams, and plant taxonomy revision summaries.</p>
+                    </div>
+                    <button onclick="openResourceModal('Plant Physiology Notes', 'High-density, diagram-driven study guides covering Photosynthesis, Respiration, and Transpiration designed for NEET/NCERT standard revision.')" class="w-full py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors mt-2">
+                        Preview Summary
+                    </button>
+                </div>
+
+                <!-- Card 2: NEET Practice Materials -->
+                <div class="resource-card glass-card rounded-2xl overflow-hidden space-y-3 p-4 flex flex-col justify-between" data-category="neet">
+                    <div class="space-y-3">
+                        <div class="h-40 rounded-xl bg-slate-100 dark:bg-slate-800 overflow-hidden relative group">
+                            <img src="https://placehold.co/600x400/0284c7/ffffff?text=NEET+Mock+Tests+%26+MCQs" alt="NEET Practice" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/0284c7/ffffff?text=NEET+Materials'">
+                            <span class="absolute top-2 right-2 px-2 py-1 rounded bg-slate-900/80 text-[10px] font-bold text-tech-400">Question Bank</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base">NEET Botany MCQ Bank</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Curated question sets, chapter-wise MCQs, and assertion-reason exercises.</p>
+                    </div>
+                    <button onclick="openResourceModal('NEET Botany MCQ Bank', 'Comprehensive 500+ MCQ database with detailed solutions targeting high-yield Botany topics for competitive edge.')" class="w-full py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-tech-600 hover:text-white text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors mt-2">
+                        Preview Summary
+                    </button>
+                </div>
+
+                <!-- Card 3: Educational Videos -->
+                <div class="resource-card glass-card rounded-2xl overflow-hidden space-y-3 p-4 flex flex-col justify-between" data-category="ai">
+                    <div class="space-y-3">
+                        <div class="h-40 rounded-xl bg-slate-100 dark:bg-slate-800 overflow-hidden relative group">
+                            <img src="https://placehold.co/600x400/7c3aed/ffffff?text=AI+Visual+Tutorials" alt="Educational Videos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/7c3aed/ffffff?text=Tutorial+Videos'">
+                            <span class="absolute top-2 right-2 px-2 py-1 rounded bg-slate-900/80 text-[10px] font-bold text-purple-400">Video Tutorials</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base">Motion-Graphic Explainers</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Recorded micro-lessons and AI-animated visual guides for complex cellular processes.</p>
+                    </div>
+                    <button onclick="openResourceModal('Motion-Graphic Explainers', 'Short video series breaking down Genetics and Molecular Biology using animated flowcharts and voiceover guidance.')" class="w-full py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-purple-600 hover:text-white text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors mt-2">
+                        Preview Summary
+                    </button>
+                </div>
+
+                <!-- Card 4: AI Worksheets -->
+                <div class="resource-card glass-card rounded-2xl overflow-hidden space-y-3 p-4 flex flex-col justify-between" data-category="ai">
+                    <div class="space-y-3">
+                        <div class="h-40 rounded-xl bg-slate-100 dark:bg-slate-800 overflow-hidden relative group">
+                            <img src="https://placehold.co/600x400/d97706/ffffff?text=AI+Adaptive+Worksheets" alt="AI Worksheets" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/d97706/ffffff?text=AI+Worksheets'">
+                            <span class="absolute top-2 right-2 px-2 py-1 rounded bg-slate-900/80 text-[10px] font-bold text-amber-400">Interactive</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base">AI-Enhanced Worksheets</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Differentiated assessments generated for varying difficulty tiers.</p>
+                    </div>
+                    <button onclick="openResourceModal('AI-Enhanced Worksheets', 'Adaptive question sets designed with MagicSchool & Gemini to test multi-level understanding across Botany units.')" class="w-full py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-amber-600 hover:text-white text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors mt-2">
+                        Preview Summary
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 14: CONTACT & PROFESSIONAL NETWORKING -->
+        <section id="contact" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">Get In Touch</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-display">Let's Connect</h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400">
+                    Open for academic collaborations, online teaching, EdTech content projects, and AI pedagogy discussions.
+                </p>
+                <div class="w-16 h-1 bg-gradient-to-r from-emerald-500 to-tech-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Contact Channels Card -->
+                <div class="lg:col-span-5 glass-card p-8 rounded-3xl space-y-6 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">Contact Information</h3>
+
+                        <!-- Phone -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Mobile Direct</span>
+                                <a href="tel:+919876523456" class="font-bold text-slate-900 dark:text-white hover:text-emerald-600 transition-colors text-sm">+91 98765 23456</a>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-tech-100 dark:bg-tech-950 text-tech-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Primary Email</span>
+                                <a href="mailto:ankit123@gmail.com" class="font-bold text-slate-900 dark:text-white hover:text-tech-600 transition-colors text-sm">ankit123@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <!-- LinkedIn -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center text-lg">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">LinkedIn Profile</span>
+                                <a href="mailto:ankitsaini24567@linkedin.com" class="font-bold text-slate-900 dark:text-white hover:text-blue-600 transition-colors text-sm">ankitsaini24567@linkedin.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-800 text-xs text-slate-500 dark:text-slate-400">
+                        <i class="fa-solid fa-clock text-emerald-500 mr-1"></i> Typical response time: Within 24 hours.
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7 glass-card p-8 rounded-3xl">
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-xs font-semibold text-slate-700 dark:text-slate-300">Your Name</label>
+                                <input type="text" required placeholder="Dr. / Prof. / Student" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-semibold text-slate-700 dark:text-slate-300">Your Email</label>
+                                <input type="email" required placeholder="name@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm">
+                            </div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-xs font-semibold text-slate-700 dark:text-slate-300">Subject</label>
+                            <input type="text" required placeholder="NEET Mentorship / International Tutoring / Collaboration" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm">
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-xs font-semibold text-slate-700 dark:text-slate-300">Message</label>
+                            <textarea rows="4" required placeholder="Please write your query or collaboration request here..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-tech-600 hover:from-emerald-700 hover:to-tech-700 text-white font-semibold text-sm shadow-md transition-all flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-paper-plane"></i>
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+
+                    <!-- Form Confirmation Box -->
+                    <div id="formStatus" class="hidden mt-4 p-4 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-200 text-xs font-medium text-center">
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-sm mr-1"></i> Thank you! Your message has been sent successfully.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 py-8 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+            <div>
+                © <span id="year"></span> Ankit Saini. All rights reserved. Botany Educator & EdTech Professional.
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#home" class="hover:text-emerald-600 transition-colors">Back to Top</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- RESOURCE PREVIEW MODAL -->
+    <div id="resourceModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full rounded-3xl p-6 space-y-4 shadow-2xl relative">
+            <button onclick="closeResourceModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center font-bold text-lg">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+            <h3 id="modalTitle" class="text-xl font-bold font-display text-slate-900 dark:text-white">Resource Title</h3>
+            <p id="modalDescription" class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Resource description details will appear here.</p>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+                <button onclick="closeResourceModal()" class="px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-semibold">Close Preview</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Set Year dynamically
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Dark / Light Theme Toggle Setup
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+
+        // Check stored theme or preference
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Educational Resource Category Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const resourceCards = document.querySelectorAll('.resource-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button styling
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-emerald-600', 'text-white');
+                    b.classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                });
+                btn.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                btn.classList.add('bg-emerald-600', 'text-white');
+
+                const filter = btn.getAttribute('data-filter');
+
+                resourceCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Resource Modal Handler
+        function openResourceModal(title, desc) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDescription').textContent = desc;
+            document.getElementById('resourceModal').classList.remove('hidden');
+        }
+
+        function closeResourceModal() {
+            document.getElementById('resourceModal').classList.add('hidden');
+        }
+
+        // Contact Form Submission Simulation
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const formStatus = document.getElementById('formStatus');
+            formStatus.classList.remove('hidden');
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                formStatus.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
